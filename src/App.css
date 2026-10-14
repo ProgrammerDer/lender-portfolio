@@ -1,0 +1,2686 @@
+:root {
+
+  font-family: "Space Mono", monospace;
+
+  color: #f7edd7;
+
+  background: #0d2030;
+
+  font-synthesis: none;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  --navy: #0d2030;
+
+  --navy-light: #142e40;
+
+  --cream: #f7edd7;
+
+  --muted: #b9c8cc;
+
+  --orange: #f5ad57;
+
+  --coral: #d86d57;
+
+  --teal: #71d3c1;
+
+  --border: #385366;
+
+}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 100px;
+
+}
+
+body {
+
+  margin: 0;
+
+  min-width: 320px;
+
+  min-height: 100vh;
+
+}
+
+button,
+
+a {
+
+  font: inherit;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+button:focus-visible,
+
+a:focus-visible {
+
+  outline: 3px solid var(--teal);
+
+  outline-offset: 4px;
+
+}
+
+.portfolio {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 76% 40%,
+      rgba(29, 75, 103, 0.26),
+      transparent 48%
+    ),
+    linear-gradient(
+      180deg,
+      #0b2639 0%,
+      #091e30 75%,
+      #071725 100%
+    );
+}
+
+.section-container,
+
+.navbar {
+  position: relative;
+  width: min(1320px, calc(100% - 64px));
+  min-height: 88px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+
+}
+
+.brand-logo {
+
+  font-family: "Press Start 2P", monospace;
+
+  font-size: 25px;
+
+  color: var(--orange);
+
+  text-shadow: 3px 3px 0 #753f35;
+
+}
+
+.brand-text {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+.brand-text strong {
+
+  font-size: 14px;
+
+  color: var(--cream);
+
+}
+
+.brand-text small {
+
+  color: var(--teal);
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+}
+
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+}
+
+.nav-link {
+
+  padding: 10px 11px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 12px;
+
+  transition: color 180ms ease, background 180ms ease;
+
+}
+
+.nav-link:hover,
+
+.nav-link.active {
+
+  color: var(--orange);
+
+  background: #f5ad5715;
+
+}
+
+.button {
+
+  min-height: 48px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border: 2px solid var(--border);
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition: transform 180ms ease, background 180ms ease;
+
+}
+
+.button:hover {
+
+  transform: translateY(-3px);
+
+}
+
+.button-primary {
+
+  color: var(--navy);
+
+  background: var(--orange);
+
+  border-color: var(--orange);
+
+  box-shadow: 4px 4px 0 #7b4b3d;
+
+}
+
+.button-primary:hover {
+
+  background: #ffd08b;
+
+}
+
+.button-outline {
+
+  color: var(--cream);
+
+  background: var(--navy-light);
+
+}
+
+.resume-button {
+
+  white-space: nowrap;
+
+}
+
+.mobile-menu {
+
+  display: none;
+
+  color: var(--cream);
+
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  border-radius: 4px;
+
+  padding: 8px;
+
+}
+
+/* Hero */
+
+.hero {
+
+  position: relative;
+
+  min-height: 560px;
+
+  display: grid;
+
+  grid-template-columns: 1.08fr 0.92fr;
+
+  align-items: center;
+
+  gap: 28px;
+
+  padding-top: 54px;
+
+  padding-bottom: 48px;
+
+}
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 3;
+
+}
+
+.eyebrow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 12px;
+
+  border: 1px solid #57758a;
+
+  color: var(--teal);
+
+  background: #142e40;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+}
+
+.status-dot {
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--teal);
+
+}
+
+.hero h1 {
+
+  margin: 28px 0 18px;
+
+  color: var(--cream);
+
+  font-family: "Press Start 2P", monospace;
+
+  font-size: clamp(29px, 4.1vw, 54px);
+
+  line-height: 1.45;
+
+  letter-spacing: -2px;
+
+}
+
+.gradient-text {
+
+  color: var(--orange);
+
+  text-shadow: 3px 3px 0 #784c3d;
+
+}
+
+.accent-text {
+
+  color: var(--teal);
+
+}
+
+.hero h2 {
+
+  max-width: 680px;
+
+  margin: 0 0 18px;
+
+  font-size: clamp(17px, 2vw, 23px);
+
+  line-height: 1.6;
+
+  letter-spacing: -0.8px;
+
+}
+
+.hero-description {
+
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+
+.hero-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 25px;
+
+}
+
+.social-links {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 17px;
+
+  margin-top: 28px;
+
+}
+
+.social-links a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: var(--cream);
+
+}
+
+.social-links a:hover {
+
+  color: var(--teal);
+
+}
+
+.social-caption {
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+}
+
+.scroll-indicator {
+
+  position: absolute;
+
+  bottom: 8px;
+
+  left: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+}
+
+/* Character stage */
+
+.hero-visual {
+
+  min-width: 0;
+
+}
+
+.character-stage {
+  isolation: isolate;
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: visible;
+}
+
+.character-glow {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #71d3c112;
+  filter: blur(45px);
+  pointer-events: none;
+  bottom: 40px;
+}
+
+.character-interactive {
+  position: relative;
+  z-index: 1;
+  width: clamp(240px, 30vw, 370px);
+  height: clamp(300px, 34vw, 410px);
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .character-stage {
+    min-height: 320px;
+  }
+
+  .character-interactive {
+    width: min(260px, 70vw);
+    height: 320px;
+  }
+}
+
+.character-pose {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center bottom;
+
+  transition: opacity 250ms ease, transform 250ms ease;
+
+  user-select: none;
+
+  pointer-events: none;
+
+}
+
+.character-idle {
+
+  opacity: 1;
+
+}
+
+.character-wave {
+
+  opacity: 0;
+
+}
+
+.character-interactive:hover .character-idle,
+
+.character-interactive.is-waving .character-idle {
+
+  opacity: 0;
+
+}
+
+.character-interactive:hover .character-wave,
+
+.character-interactive.is-waving .character-wave {
+
+  opacity: 1;
+
+}
+
+.hello-bubble {
+
+  position: absolute;
+
+  top: 25px;
+
+  right: -8px;
+
+  padding: 10px 12px;
+
+  color: var(--navy);
+
+  background: var(--cream);
+
+  border: 2px solid var(--navy);
+
+  box-shadow: 3px 3px 0 var(--orange);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  opacity: 0;
+
+  transform: translateY(6px);
+
+  transition: opacity 180ms ease, transform 180ms ease;
+
+  pointer-events: none;
+
+}
+
+.character-interactive:hover .hello-bubble,
+
+.character-interactive.is-waving .hello-bubble {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+.character-caption {
+
+  margin-top: 0;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  text-align: center;
+
+}
+
+/* ===== RETRO ARCADE TECHNOLOGY BADGES ===== */
+
+.floating-tech {
+
+  --badge-color: #71d3c1;
+
+  --badge-fill: #153846;
+
+  position: absolute;
+
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  min-height: 48px;
+
+  padding: 9px 14px;
+
+  border: 3px solid var(--badge-color);
+
+  border-radius: 0;
+
+  background: var(--badge-fill);
+
+  color: var(--badge-color);
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  box-shadow: 4px 4px 0 #071620, inset 0 0 0 2px #10283a;
+
+  animation: arcade-float 3.5s ease-in-out infinite;
+
+  pointer-events: none;
+
+}
+
+/* Pixel-style speech tail */
+
+.floating-tech::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 20px;
+
+  bottom: -10px;
+
+  width: 12px;
+
+  height: 12px;
+
+  background: var(--badge-fill);
+
+  border-right: 3px solid var(--badge-color);
+
+  border-bottom: 3px solid var(--badge-color);
+
+  transform: skewY(35deg);
+
+}
+
+.tech-symbol {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 20px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+}
+
+/* C# — muted violet */
+
+.floating-tech-csharp {
+
+  --badge-color: #c7a0ff;
+
+  --badge-fill: #29213e;
+
+  top: 19%;
+
+  left: 1%;
+
+  animation-delay: -0.4s;
+
+}
+
+/* .NET — cool blue */
+
+.floating-tech-dotnet {
+
+  --badge-color: #8dcaff;
+
+  --badge-fill: #173349;
+
+  top: 32%;
+
+  right: 1%;
+
+  animation-delay: -1.2s;
+
+}
+
+/* React — teal */
+
+.floating-tech-react {
+
+  --badge-color: #56e5d5;
+
+  --badge-fill: #123b3d;
+
+  top: 49%;
+
+  left: 0;
+
+  animation-delay: -2s;
+
+}
+
+/* Angular — coral */
+
+.floating-tech-angular {
+
+  --badge-color: #ff837f;
+
+  --badge-fill: #43262f;
+
+  right: 0;
+
+  bottom: 26%;
+
+  animation-delay: -0.8s;
+
+}
+
+/* SQL — amber */
+
+.floating-tech-sql {
+
+  --badge-color: #ffbd45;
+
+  --badge-fill: #42341d;
+
+  left: 9%;
+
+  bottom: 15%;
+
+  animation-delay: -1.7s;
+
+}
+
+@keyframes arcade-float {
+
+  0%,
+
+  100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(-8px);
+
+  }
+
+}
+
+/* Stats */
+
+.stats {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 4px;
+
+  border: 2px solid #526c7c;
+
+  background: #112a3b;
+
+  box-shadow: 5px 5px 0 #071620;
+
+}
+
+.stat-item {
+
+  min-height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 17px;
+
+  padding: 20px;
+
+}
+
+.stat-item+.stat-item {
+
+  border-left: 1px solid var(--border);
+
+}
+
+.stat-icon {
+
+  flex-shrink: 0;
+
+  color: var(--orange);
+
+}
+
+.stat-item div {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+}
+
+.stat-item strong {
+
+  color: var(--cream);
+
+  font-size: 22px;
+
+}
+
+.stat-item span {
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+}
+
+/* Content sections */
+
+.placeholder-section,
+
+.contact-section {
+
+  padding-top: 100px;
+
+  padding-bottom: 80px;
+
+  border-bottom: 1px solid var(--border);
+
+}
+
+.section-kicker {
+
+  color: var(--teal);
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+}
+
+.placeholder-section h2,
+
+.contact-section h2 {
+
+  margin: 22px 0 16px;
+
+  color: var(--cream);
+
+  font-family: "Press Start 2P", monospace;
+
+  font-size: clamp(18px, 2.5vw, 28px);
+
+  line-height: 1.8;
+
+}
+
+.placeholder-section p,
+
+.contact-section p {
+
+  max-width: 750px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+
+.coming-next {
+
+  display: inline-block;
+
+  margin-top: 18px;
+
+  padding: 8px 10px;
+
+  border: 1px dashed #526c7c;
+
+  color: var(--orange);
+
+  font-size: 10px;
+
+}
+
+/* Footer */
+
+.footer {
+
+  width: min(1320px, calc(100% - 64px));
+
+  margin: 0 auto;
+
+  padding: 35px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+}
+
+.footer p,
+
+.footer>span {
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+
+  .section-container,
+
+  .navbar,
+
+  .footer {
+
+    width: min(100% - 40px, 900px);
+
+  }
+
+  .navbar {
+
+    flex-wrap: wrap;
+
+    padding: 18px 0;
+
+  }
+
+  .nav-links {
+
+    order: 3;
+
+    width: 100%;
+
+  }
+
+  .nav-link {
+
+    padding-inline: 9px;
+
+  }
+
+  .hero {
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 12px;
+
+  }
+
+  .character-interactive {
+
+    height: 350px;
+
+  }
+
+  .character-stage {
+
+    min-height: 390px;
+
+  }
+
+  .floating-tech {
+
+    padding: 7px 9px;
+
+    font-size: 10px;
+
+  }
+
+}
+
+@media (max-width: 760px) {
+
+  .section-container,
+
+  .navbar,
+
+  .footer {
+
+    width: calc(100% - 32px);
+
+  }
+
+  .navbar {
+
+    min-height: 76px;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+  }
+
+  .brand-logo {
+
+    font-size: 20px;
+
+  }
+
+  .brand-text strong {
+
+    font-size: 12px;
+
+  }
+
+  .brand-text small {
+
+    font-size: 9px;
+
+  }
+
+  .mobile-menu {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+  }
+
+  .resume-button {
+
+    display: none;
+
+  }
+
+  .nav-links {
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    order: 3;
+
+    padding: 12px 0;
+
+    border-top: 1px solid var(--border);
+
+  }
+
+  .nav-links.open {
+
+    display: flex;
+
+  }
+
+  .nav-link {
+
+    width: 100%;
+
+    text-align: left;
+
+    padding: 12px;
+
+  }
+
+  .hero {
+
+    grid-template-columns: 1fr;
+
+    padding-top: 48px;
+
+    padding-bottom: 45px;
+
+  }
+
+  .hero h1 {
+
+    margin-top: 22px;
+
+    font-size: clamp(25px, 7vw, 42px);
+
+  }
+
+  .hero h2 {
+
+    font-size: 18px;
+
+  }
+
+  .hero-description {
+
+    font-size: 12px;
+
+  }
+
+  .character-stage {
+
+    width: 100%;
+
+    min-height: 390px;
+
+    margin-top: 18px;
+
+  }
+
+  .character-interactive {
+
+    width: min(100%, 340px);
+
+    height: 360px;
+
+  }
+
+  .floating-tech-csharp {
+
+    left: 2%;
+
+  }
+
+  .floating-tech-dotnet {
+
+    right: 1%;
+
+  }
+
+  .floating-tech-react {
+
+    left: 0;
+
+  }
+
+  .floating-tech-angular {
+
+    right: 0;
+
+  }
+
+  .scroll-indicator {
+
+    position: static;
+
+    margin-top: 24px;
+
+  }
+
+  .stats {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .stat-item {
+
+    justify-content: flex-start;
+
+    padding: 20px 25px;
+
+  }
+
+  .stat-item+.stat-item {
+
+    border-left: 0;
+
+    border-top: 1px solid var(--border);
+
+  }
+
+  .placeholder-section,
+
+  .contact-section {
+
+    padding-top: 70px;
+
+    padding-bottom: 55px;
+
+  }
+
+  .placeholder-section h2,
+
+  .contact-section h2 {
+
+    font-size: 18px;
+
+  }
+
+  .footer {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .hero-actions {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+  .hero-actions .button {
+
+    width: 100%;
+
+  }
+
+  .character-interactive {
+
+    height: 330px;
+
+  }
+
+  .floating-tech {
+
+    font-size: 9px;
+
+    padding: 6px 8px;
+
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+  }
+
+}
+
+/* Refined badge sizing on smaller screens */
+
+@media (max-width: 760px) {
+
+  .floating-tech {
+
+    min-height: 38px;
+
+    gap: 6px;
+
+    padding: 6px 9px;
+
+    border-width: 2px;
+
+    font-size: 10px;
+
+  }
+
+  .tech-symbol {
+
+    min-width: 16px;
+
+    font-size: 14px;
+
+  }
+
+  .floating-tech-csharp,
+
+  .floating-tech-react,
+
+  .floating-tech-sql {
+
+    left: 0;
+
+  }
+
+  .floating-tech-dotnet,
+
+  .floating-tech-angular {
+
+    right: 0;
+
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floating-tech {
+
+    animation: none;
+
+  }
+
+}
+
+/* ========================================
+
+   RETRO ARCADE — CITY ATMOSPHERE
+
+   ======================================== */
+
+/* Theme background settings */
+
+.portfolio {
+
+  --hero-overlay-left: rgba(3, 15, 27, 0.94);
+
+  --hero-overlay-mid: rgba(3, 15, 27, 0.60);
+
+  --hero-overlay-right: rgba(3, 15, 27, 0.12);
+
+}
+
+.portfolio.theme-light {
+
+  --hero-overlay-left: rgba(9, 31, 45, 0.78);
+
+  --hero-overlay-mid: rgba(9, 31, 45, 0.42);
+
+  --hero-overlay-right: rgba(9, 31, 45, 0.05);
+
+}
+
+/* Hero background */
+
+.hero {
+
+  position: relative;
+
+  isolation: isolate;
+
+}
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0 -5vw;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background-image:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--hero-overlay-left) 0%,
+
+      var(--hero-overlay-mid) 42%,
+
+      var(--hero-overlay-right) 76%,
+
+      transparent 100%
+
+    ),
+
+    linear-gradient(
+
+      180deg,
+
+      rgba(5, 19, 32, 0.12) 0%,
+
+      transparent 48%,
+
+      rgba(5, 19, 32, 0.35) 100%
+
+    ),
+
+    url("/images/pixel-city-bg.png");
+
+  background-size: 100% 100%, 100% 100%, cover;
+
+  background-position: center, center, center;
+
+  background-repeat: no-repeat;
+
+}
+
+/* Light mode: sunny morning background */
+
+.portfolio.theme-light .hero::before {
+
+  background-image:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--hero-overlay-left) 0%,
+
+      var(--hero-overlay-mid) 42%,
+
+      var(--hero-overlay-right) 76%,
+
+      transparent 100%
+
+    ),
+
+    linear-gradient(
+
+      180deg,
+
+      rgba(255, 240, 205, 0.05) 0%,
+
+      transparent 50%,
+
+      rgba(5, 19, 32, 0.24) 100%
+
+    ),
+
+    url("/images/pixel-city-morning.png");
+
+}
+
+/* Keep hero content above the decorative scenery */
+
+.hero-content,
+
+.hero-visual,
+
+.scroll-indicator {
+
+  position: relative;
+
+}
+
+/* Retro cream typography */
+
+.hero h1 {
+
+  color: var(--retro-cream);
+
+  text-shadow: 3px 3px 0 rgba(3, 13, 23, 0.65);
+
+}
+
+.gradient-text {
+
+  color: var(--retro-orange);
+
+  background: none;
+
+  -webkit-text-fill-color: currentColor;
+
+  text-shadow: 4px 4px 0 #7b392d;
+
+}
+
+.accent-text {
+
+  color: var(--retro-teal);
+
+}
+
+/* Muted retro supporting text */
+
+.hero-description,
+
+.social-caption,
+
+.character-caption {
+
+  color: var(--retro-muted);
+
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero::before {
+
+    animation: none;
+
+  }
+
+}
+
+/* ==========================================
+
+   ARCADE REFINEMENT — NAVBAR & CITY SCENE
+
+   ========================================== */
+
+.portfolio {
+
+  --navy: #0b2031;
+
+  --navy-light: #153448;
+
+  --cream: #fff0ce;
+
+  --muted: #b9cfe0;
+
+  --orange: #ffad45;
+
+  --coral: #ff805b;
+
+  --teal: #51d9c5;
+
+  --border: #38566b;
+
+  background:
+
+    radial-gradient(ellipse at 75% 42%,
+
+      rgba(20, 72, 101, 0.32),
+
+      transparent 48%),
+
+    linear-gradient(180deg,
+
+      #0c293d 0%,
+
+      #091e30 72%,
+
+      #071827 100%);
+
+}
+
+/* 1. Cream arcade navigation banner */
+
+.navbar {
+  position: relative;
+  z-index: 20;
+
+  width: min(1480px, calc(100% - 64px));
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 12px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: var(--cream);
+  color: var(--navy);
+  border: 3px solid #e6d2ad;
+  box-shadow:
+    inset 0 0 0 2px #fff9e9,
+    4px 4px 0 #071522;
+}
+
+/* Pixel-inspired corner details */
+
+.navbar::before,
+
+.navbar::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 9px;
+
+  height: 9px;
+
+  background: var(--navy);
+
+  pointer-events: none;
+
+}
+
+.navbar::before {
+  top: 0;
+  left: 0;
+
+  box-shadow:
+    9px 0 var(--cream),
+    0 9px var(--cream);
+}
+
+.navbar::after {
+
+  right: -3px;
+
+  bottom: -3px;
+
+  box-shadow:
+
+    -9px 0 var(--cream),
+
+    0 -9px var(--cream);
+
+}
+
+/* Logo and name */
+
+.brand {
+
+  color: var(--navy);
+
+  gap: 13px;
+
+}
+
+.brand-logo {
+
+  color: var(--orange);
+
+  font-size: 30px;
+
+  text-shadow:
+
+    3px 3px 0 #81462f,
+
+    -1px -1px 0 #fff5dc;
+
+}
+
+.brand-text strong {
+
+  color: var(--navy);
+
+  font-family: "Press Start 2P", monospace;
+
+  font-size: clamp(9px, 1vw, 13px);
+
+  line-height: 1.8;
+
+}
+
+.brand-text small {
+
+  color: #188b8e;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+}
+
+/* Navigation menu */
+
+.nav-links {
+
+  gap: 5px;
+
+}
+
+.nav-link {
+
+  padding: 10px 11px;
+
+  border: 2px solid transparent;
+
+  border-radius: 0;
+
+  color: var(--navy);
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  transition:
+
+    color 160ms ease,
+
+    background 160ms ease,
+
+    transform 160ms ease;
+
+}
+
+.nav-link:hover {
+
+  color: #a34b32;
+
+  background: #ffe1b3;
+
+  transform: translateY(-2px);
+
+}
+
+.nav-link.active {
+
+  color: var(--navy);
+
+  background: var(--coral);
+
+  border-color: #f16e4e;
+
+  box-shadow: 3px 3px 0 #bd593c;
+
+}
+
+/* Chunky arcade resume button */
+
+.resume-button {
+
+  min-height: 46px;
+
+  padding: 10px 15px;
+
+  border: 3px solid #8d482f !important;
+
+  border-radius: 0 !important;
+
+  color: var(--navy) !important;
+
+  background: var(--orange) !important;
+
+  box-shadow:
+
+    inset 0 0 0 2px #ffd18b,
+
+    4px 4px 0 #8d482f;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+.resume-button:hover {
+
+  transform: translate(-2px, -2px);
+
+  box-shadow:
+
+    inset 0 0 0 2px #ffd18b,
+
+    6px 6px 0 #8d482f;
+
+}
+
+/* 2. Refined pixel-style headline */
+
+.hero h1 {
+
+  color: var(--cream);
+
+  text-shadow: 4px 4px 0 #061522;
+
+}
+
+.gradient-text {
+
+  color: var(--orange);
+
+  background: none;
+
+  -webkit-text-fill-color: currentColor;
+
+  text-shadow: 4px 4px 0 #81452f;
+
+}
+
+.accent-text {
+
+  color: var(--teal);
+
+}
+
+/* 3. Less uniform stars + layered skyline */
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0 -5vw;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background-image:
+
+    radial-gradient(circle at 12% 18%,
+
+      #ffb84f 2px,
+
+      transparent 3px),
+
+    radial-gradient(circle at 38% 31%,
+
+      #7ca9c8 2px,
+
+      transparent 3px),
+
+    radial-gradient(circle at 72% 14%,
+
+      #718aa9 2px,
+
+      transparent 3px),
+
+    radial-gradient(circle at 87% 37%,
+
+      #ffb84f 2px,
+
+      transparent 3px),
+
+    linear-gradient(to top,
+
+      #102e43 0 10%,
+
+      transparent 10%);
+
+  background-size:
+
+    181px 151px,
+
+    223px 187px,
+
+    197px 173px,
+
+    251px 211px,
+
+    100% 100%;
+
+  background-position:
+
+    12px 20px,
+
+    65px 10px,
+
+    20px 70px,
+
+    110px 30px,
+
+    center;
+
+  opacity: 0.65;
+
+}
+
+/* Distant blocky building silhouettes */
+
+.hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  left: -5vw;
+
+  right: -5vw;
+
+  bottom: 0;
+
+  height: 23%;
+
+  background:
+
+    linear-gradient(to top,
+
+      #102c40 0 100%) 0 100% / 7% 43% no-repeat,
+
+    linear-gradient(to top,
+
+      #15364a 0 100%) 9% 100% / 8% 67% no-repeat,
+
+    linear-gradient(to top,
+
+      #102b40 0 100%) 19% 100% / 11% 49% no-repeat,
+
+    linear-gradient(to top,
+
+      #17364a 0 100%) 34% 100% / 9% 76% no-repeat,
+
+    linear-gradient(to top,
+
+      #102b40 0 100%) 47% 100% / 12% 44% no-repeat,
+
+    linear-gradient(to top,
+
+      #15364a 0 100%) 62% 100% / 10% 62% no-repeat,
+
+    linear-gradient(to top,
+
+      #102b40 0 100%) 77% 100% / 12% 47% no-repeat,
+
+    linear-gradient(to top,
+
+      #17364a 0 100%) 92% 100% / 9% 72% no-repeat;
+
+  opacity: 0.6;
+
+}
+
+/* 4. Preserve readable text above scenery */
+
+.hero-content,
+
+.hero-visual,
+
+.scroll-indicator {
+
+  position: relative;
+
+}
+
+/* 5. Responsive navbar */
+
+@media (max-width: 1100px) {
+
+  .navbar {
+
+    width: calc(100% - 40px);
+
+    gap: 12px;
+
+  }
+
+  .brand-text strong {
+
+    font-size: 10px;
+
+  }
+
+  .nav-links {
+
+    gap: 2px;
+
+  }
+
+  .nav-link {
+
+    padding: 9px 7px;
+
+    font-size: 10px;
+
+  }
+
+  .resume-button {
+
+    padding-inline: 10px;
+
+    font-size: 10px;
+
+  }
+
+}
+
+@media (max-width: 760px) {
+
+  .navbar {
+
+    width: calc(100% - 32px);
+
+    min-height: 76px;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    flex-wrap: wrap;
+
+  }
+
+  .brand-logo {
+
+    font-size: 22px;
+
+  }
+
+  .brand-text strong {
+
+    font-size: 9px;
+
+  }
+
+  .mobile-menu {
+
+    color: var(--navy);
+
+    border-color: #b7a783;
+
+  }
+
+  .nav-links {
+
+    background: var(--cream);
+
+    border-top: 1px solid #d8c49e;
+
+  }
+
+  .nav-link {
+
+    width: 100%;
+
+    color: var(--navy);
+
+    text-align: left;
+
+    font-size: 11px;
+
+  }
+
+  .nav-link.active {
+
+    box-shadow: 2px 2px 0 #bd593c;
+
+  }
+
+  .hero::after {
+
+    height: 12%;
+
+    opacity: 0.35;
+
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nav-link,
+
+  .resume-button {
+
+    transition: none;
+
+  }
+
+}
+
+/* ==========================================
+
+   REFINEMENT 2 — PIXEL NIGHT ENVIRONMENT
+
+   ========================================== */
+
+.portfolio {
+
+  background:
+
+    radial-gradient(ellipse at 76% 40%,
+
+      rgba(29, 75, 103, 0.26),
+
+      transparent 48%),
+
+    linear-gradient(180deg,
+
+      #0b2639 0%,
+
+      #091e30 75%,
+
+      #071725 100%);
+
+}
+
+/* Fewer, more subtle pixel stars */
+
+.hero::before {
+
+  opacity: 0.35;
+
+  background-image:
+
+    radial-gradient(circle,
+
+      #ffbd63 2px,
+
+      transparent 3px),
+
+    radial-gradient(circle,
+
+      #80a9c7 2px,
+
+      transparent 3px),
+
+    radial-gradient(circle,
+
+      #8b9bc2 2px,
+
+      transparent 3px);
+
+  background-size:
+
+    263px 197px,
+
+    337px 251px,
+
+    419px 293px;
+
+  background-position:
+
+    18px 35px,
+
+    95px 82px,
+
+    42px 140px;
+
+}
+
+/* Layered pixel-city silhouettes */
+
+.hero::after {
+
+  height: 25%;
+
+  opacity: 0.8;
+
+  background:
+
+    /* Distant skyline */
+
+    linear-gradient(#102d42, #102d42) 3% 100% / 8% 45% no-repeat,
+
+    linear-gradient(#14364b, #14364b) 13% 100% / 6% 72% no-repeat,
+
+    linear-gradient(#102c41, #102c41) 22% 100% / 11% 54% no-repeat,
+
+    linear-gradient(#17384d, #17384d) 38% 100% / 7% 84% no-repeat,
+
+    linear-gradient(#102c41, #102c41) 49% 100% / 12% 48% no-repeat,
+
+    linear-gradient(#14364b, #14364b) 65% 100% / 8% 67% no-repeat,
+
+    linear-gradient(#102c41, #102c41) 78% 100% / 10% 53% no-repeat,
+
+    linear-gradient(#17384d, #17384d) 92% 100% / 8% 76% no-repeat,
+
+    /* Pixel windows */
+
+    repeating-linear-gradient(90deg,
+
+      transparent 0 13px,
+
+      #e7a85b 13px 17px,
+
+      transparent 17px 27px) 13% 100% / 6% 72% no-repeat,
+
+    repeating-linear-gradient(0deg,
+
+      transparent 0 17px,
+
+      #638da6 17px 21px,
+
+      transparent 21px 29px) 38% 100% / 7% 84% no-repeat,
+
+    linear-gradient(to top,
+
+      #091e30 0 8%,
+
+      transparent 8%);
+
+  pointer-events: none;
+
+}
+
+/* Keep the character and text above the environment */
+
+.hero-content,
+
+.hero-visual,
+
+.scroll-indicator {
+
+  z-index: 1;
+
+}
+
+.hero-content {
+
+  position: relative;
+
+}
+
+.hero-visual {
+
+  position: relative;
+
+}
+
+/* Mobile: keep the environment understated */
+
+@media (max-width: 760px) {
+
+  .hero::before {
+
+    opacity: 0.2;
+
+  }
+
+  .hero::after {
+
+    height: 12%;
+
+    opacity: 0.4;
+
+  }
+
+}
+
+/* Pixel-art city environment */
+
+.hero {
+
+  isolation: isolate;
+
+  position: relative;
+
+}
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background-image:
+
+    linear-gradient(180deg,
+
+      rgba(7, 26, 43, 0.2),
+
+      rgba(7, 26, 43, 0.05) 65%,
+
+      rgba(7, 26, 43, 0.35)),
+
+    url("/images/pixel-city-bg.png");
+
+  background-size: cover;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+
+  image-rendering: pixelated;
+
+}
+
+/* Keep text and controls readable */
+
+.hero-content,
+
+.hero-visual,
+
+.scroll-indicator {
+
+  position: relative;
+
+  z-index: 1;
+
+}
+
+@media (max-width: 760px) {
+
+  .hero::before {
+
+    background-position: center bottom;
+
+    opacity: 0.65;
+
+  }
+
+}
+
+/* ==========================================
+
+   FINAL REFINEMENT — FULL-WIDTH PIXEL CITY
+
+   ========================================== */
+
+.hero {
+
+  position: relative;
+
+  isolation: isolate;
+
+}
+
+/* Extend the city background beyond the
+
+   centered hero container to the screen edges. */
+
+.hero::before {
+
+  top: 0;
+
+  bottom: 0;
+
+  left: calc((100% - 100vw) / 2);
+
+  width: 100vw;
+
+  right: auto;
+
+  background-image:
+
+    linear-gradient(180deg,
+
+      rgba(7, 26, 43, 0.24) 0%,
+
+      rgba(7, 26, 43, 0.08) 55%,
+
+      rgba(7, 26, 43, 0.38) 100%),
+
+    url("/images/pixel-city-bg.png");
+
+  background-size: cover;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+
+  image-rendering: pixelated;
+
+  opacity: 1;
+
+}
+
+/* Let the actual city artwork provide the skyline
+
+   instead of layering artificial building blocks. */
+
+.hero::after {
+
+  display: none;
+
+}
+
+/* Keep the text, character and badges in front. */
+
+.hero-content,
+
+.hero-visual,
+
+.scroll-indicator {
+
+  position: relative;
+
+  z-index: 1;
+
+}
+
+/* Mobile refinement */
+
+@media (max-width: 760px) {
+
+  .hero::before {
+
+    background-position: center bottom;
+
+  }
+
+}
+
+/* ==========================================
+   FINAL THEME + READABILITY REFINEMENT
+   Keep the existing layout and make the toggle
+   reliably switch between the matching assets.
+   ========================================== */
+
+.portfolio {
+  --retro-cream: #fff0ce;
+  --retro-orange: #ffad45;
+  --retro-teal: #51d9c5;
+  --retro-muted: #d0dce3;
+  --hero-overlay-left: rgba(4, 18, 31, 0.94);
+  --hero-overlay-mid: rgba(4, 18, 31, 0.68);
+  --hero-overlay-right: rgba(4, 18, 31, 0.08);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.portfolio.theme-light {
+  --hero-overlay-left: rgba(9, 31, 45, 0.82);
+  --hero-overlay-mid: rgba(9, 31, 45, 0.46);
+  --hero-overlay-right: rgba(9, 31, 45, 0.03);
+  --retro-muted: #e2edf3;
+}
+
+/* The same background region switches assets with the React theme class. */
+.portfolio .hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc((100% - 100vw) / 2);
+  width: 100vw;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg,
+      var(--hero-overlay-left) 0%,
+      var(--hero-overlay-mid) 39%,
+      rgba(4, 18, 31, 0.24) 65%,
+      var(--hero-overlay-right) 100%),
+    linear-gradient(180deg,
+      rgba(4, 18, 31, 0.10) 0%,
+      transparent 48%,
+      rgba(4, 18, 31, 0.34) 100%),
+    url("/images/pixel-city-bg.png");
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center, center, center bottom;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  opacity: 1;
+  transition: background-image 220ms ease;
+}
+
+.portfolio.theme-light .hero::before {
+  background-image:
+    linear-gradient(90deg,
+      var(--hero-overlay-left) 0%,
+      var(--hero-overlay-mid) 39%,
+      rgba(9, 31, 45, 0.18) 65%,
+      var(--hero-overlay-right) 100%),
+    linear-gradient(180deg,
+      rgba(255, 240, 205, 0.03) 0%,
+      transparent 54%,
+      rgba(9, 31, 45, 0.24) 100%),
+    url("/images/pixel-city-morning.png");
+}
+
+/* Give the theme toggle the same deliberate pixel-art treatment as the nav. */
+.theme-toggle {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 2px solid #8d7655;
+  border-radius: 0;
+  color: var(--navy);
+  background: #fff7e5;
+  box-shadow: 3px 3px 0 #8d7655;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #8d7655;
+  background: #ffffff;
+}
+
+.theme-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #8d7655;
+}
+
+/* Keep badges crisp, but prevent them from visually overpowering the character. */
+.floating-tech {
+  filter: drop-shadow(0 2px 3px rgba(3, 13, 23, 0.22));
+}
+
+/* Ensure foreground content remains above the background artwork. */
+.hero-content,
+.hero-visual,
+.scroll-indicator {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1100px) {
+  .theme-toggle {
+    min-height: 38px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio .hero::before {
+    left: -16px;
+    width: calc(100% + 32px);
+    background-position: center, center, 58% bottom;
+  }
+
+  .portfolio.theme-light .hero::before {
+    background-position: center, center, 58% bottom;
+  }
+
+  .theme-toggle {
+    min-height: 36px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio,
+  .theme-toggle,
+  .portfolio .hero::before {
+    transition: none;
+  }
+}
+
+/* Keep the character stage aligned with the rooftop */
+.hero-visual.character-stage {
+  position: relative;
+  align-self: end;
+  overflow: visible;
+}
+
+/* Move the character down toward the rooftop */
+.character-interactive {
+  position: relative;
+  top: -1px;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .character-stage {
+    min-height: 0;
+    padding: 24px 0 8px;
+    justify-content: center;
+  }
+
+  .character-interactive {
+    width: min(82vw, 320px);
+    height: min(92vw, 360px);
+  }
+
+  .character-glow {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* Desktop: move the character slightly upward */
+
+/* Desktop only */
+@media (min-width: 769px) {
+  .character-interactive {
+    transform: translateY(-30px);
+  }
+}
+
+/* Mobile / resized view */
+@media (max-width: 768px) {
+  .character-interactive {
+    transform: none;
+  }
+}
+
+/* Remove unwanted dark strip behind the navbar */
+.portfolio > .navbar {
+  margin-top: 0;
+}
+
+.portfolio > .navbar::before {
+  top: 0;
+}
+
