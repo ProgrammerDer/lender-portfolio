@@ -13,6 +13,11 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
+import {
+  SiDotnet,
+  SiReact,
+  SiAngular,
+} from "@icons-pack/react-simple-icons";
 import "./App.css";
 const navigation = [
   "Home",
@@ -80,10 +85,10 @@ function App() {
 
         <a
           className="button button-primary resume-button"
-          href="/resume.pdf"
-          download
+          href="/Lender_Villareal_Resume.pdf"
+          download="Lender_Villareal_Resume.pdf"
         >
-          <Download size={17} />
+          <Download size={18} />
           Download Resume
         </a>
       </header>
@@ -148,24 +153,42 @@ function App() {
           </div>
           <div className="hero-visual character-stage">
             <div className="character-glow" />
+
             {/* Retro pixel technology speech bubbles */}
             <div className="floating-tech floating-tech-csharp">
-              <span className="tech-symbol">⬡</span>
+              <img
+                className="tech-logo"
+                src="/images/csharp.svg"
+                alt=""
+                aria-hidden="true"
+              />
               <span>C#</span>
             </div>
+
             <div className="floating-tech floating-tech-dotnet">
-              <span>.NET</span>
+              <SiDotnet
+                className="tech-logo"
+                aria-hidden="true"
+              />
             </div>
+
             <div className="floating-tech floating-tech-react">
-              <span className="tech-symbol">✳</span>
+              <SiReact className="tech-logo" aria-hidden="true" />
               <span>React</span>
             </div>
+
             <div className="floating-tech floating-tech-angular">
-              <span className="tech-symbol">A</span>
+              <SiAngular className="tech-logo" aria-hidden="true" />
               <span>Angular</span>
             </div>
+
             <div className="floating-tech floating-tech-sql">
-              <span className="tech-symbol">▤</span>
+              <img
+                className="tech-logo"
+                src="/images/sql.svg"
+                alt=""
+                aria-hidden="true"
+              />
               <span>SQL</span>
             </div>
             <button

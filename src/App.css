@@ -93,17 +93,13 @@ a:focus-visible {
   overflow: hidden;
 
   background:
-    radial-gradient(
-      ellipse at 76% 40%,
+    radial-gradient(ellipse at 76% 40%,
       rgba(29, 75, 103, 0.26),
-      transparent 48%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 48%),
+    linear-gradient(180deg,
       #0b2639 0%,
       #091e30 75%,
-      #071725 100%
-    );
+      #071725 100%);
 }
 
 .section-container,
@@ -653,192 +649,197 @@ a:focus-visible {
 
 /* ===== RETRO ARCADE TECHNOLOGY BADGES ===== */
 
+/* RETRO ARCADE — FLOATING TECH BADGES */
+
 .floating-tech {
-
   --badge-color: #71d3c1;
-
   --badge-fill: #153846;
+  --float-distance: 9px;
+  --float-duration: 3.8s;
 
   position: absolute;
-
   z-index: 2;
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 9px;
-
   min-height: 48px;
-
   padding: 9px 14px;
 
   border: 3px solid var(--badge-color);
-
   border-radius: 0;
-
   background: var(--badge-fill);
-
   color: var(--badge-color);
 
   font-family: "Space Mono", monospace;
-
   font-size: 12px;
-
   font-weight: 700;
-
+  letter-spacing: 0.2px;
   white-space: nowrap;
 
-  box-shadow: 4px 4px 0 #071620, inset 0 0 0 2px #10283a;
+  /* Pixel shadow + subtle neon glow */
+  box-shadow:
+    4px 4px 0 #071620,
+    inset 0 0 0 2px #10283a,
+    inset 0 2px 0 rgb(255 255 255 / 12%),
+    0 0 10px color-mix(in srgb, var(--badge-color) 28%, transparent),
+    0 0 22px color-mix(in srgb, var(--badge-color) 12%, transparent);
 
-  animation: arcade-float 3.5s ease-in-out infinite;
+  animation:
+    arcade-float var(--float-duration) ease-in-out infinite,
+    arcade-glow 3.2s ease-in-out infinite;
 
   pointer-events: none;
-
+  will-change: transform, filter;
+  transition:
+    box-shadow 220ms ease,
+    filter 220ms ease;
 }
 
-/* Pixel-style speech tail */
-
+/* Pixel speech-bubble tail */
 .floating-tech::after {
-
   content: "";
-
   position: absolute;
-
   left: 20px;
-
   bottom: -10px;
-
   width: 12px;
-
   height: 12px;
 
   background: var(--badge-fill);
-
   border-right: 3px solid var(--badge-color);
-
   border-bottom: 3px solid var(--badge-color);
-
   transform: skewY(35deg);
 
+  filter: drop-shadow(2px 2px 0 #071620);
 }
 
+.floating-tech::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 3px;
+  background: var(--badge-color);
+  opacity: 0.7;
+  box-shadow: 7px 0 0 rgb(255 255 255 / 16%);
+  pointer-events: none;
+}
+
+/* Technology symbol */
 .tech-symbol {
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   min-width: 20px;
 
   font-size: 17px;
-
   font-weight: 700;
-
   line-height: 1;
 
+  text-shadow: 0 0 8px currentColor;
 }
 
-/* C# — muted violet */
-
+/* C# — violet */
 .floating-tech-csharp {
-
   --badge-color: #c7a0ff;
-
   --badge-fill: #29213e;
+  --float-distance: 8px;
+  --float-duration: 3.6s;
 
-  top: 19%;
-
-  left: 1%;
-
-  animation-delay: -0.4s;
-
+  top: 22%;
+  left: 12%;
+  animation-delay: -0.4s, -1.2s;
 }
 
 /* .NET — cool blue */
-
 .floating-tech-dotnet {
-
   --badge-color: #8dcaff;
-
   --badge-fill: #173349;
+  --float-distance: 11px;
+  --float-duration: 4.2s;
 
-  top: 32%;
-
-  right: 1%;
-
-  animation-delay: -1.2s;
-
+  top: 35%;
+  right: 9%;
+  animation-delay: -1.2s, -0.5s;
 }
 
 /* React — teal */
-
 .floating-tech-react {
-
   --badge-color: #56e5d5;
-
   --badge-fill: #123b3d;
+  --float-distance: 10px;
+  --float-duration: 3.9s;
 
   top: 49%;
-
-  left: 0;
-
-  animation-delay: -2s;
-
+  left: 10%;
+  animation-delay: -2s, -2.1s;
 }
 
 /* Angular — coral */
-
 .floating-tech-angular {
-
   --badge-color: #ff837f;
-
   --badge-fill: #43262f;
+  --float-distance: 8px;
+  --float-duration: 4.4s;
 
-  right: 0;
-
+  right: 9%;
   bottom: 26%;
-
-  animation-delay: -0.8s;
-
+  animation-delay: -0.8s, -1.7s;
 }
 
 /* SQL — amber */
-
 .floating-tech-sql {
-
   --badge-color: #ffbd45;
-
   --badge-fill: #42341d;
+  --float-distance: 12px;
+  --float-duration: 3.7s;
 
-  left: 9%;
-
-  bottom: 15%;
-
-  animation-delay: -1.7s;
-
+  left: 17%;
+  bottom: 19%;
+  animation-delay: -1.7s, -2.5s;
 }
 
+/* Gentle independent floating motion */
 @keyframes arcade-float {
 
   0%,
-
   100% {
+    transform: translate3d(0, 0, 0);
+  }
 
-    transform: translateY(0);
-
+  25% {
+    transform: translate3d(3px, -5px, 0);
   }
 
   50% {
-
-    transform: translateY(-8px);
-
+    transform: translate3d(0, -10px, 0);
   }
 
+  75% {
+    transform: translate3d(-3px, -5px, 0);
+  }
+}
+
+/* Subtle breathing neon */
+@keyframes arcade-glow {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  .floating-tech {
+    animation: none;
+    will-change: auto;
+  }
 }
 
 /* Stats */
@@ -1461,9 +1462,7 @@ a:focus-visible {
 
   background-image:
 
-    linear-gradient(
-
-      90deg,
+    linear-gradient(90deg,
 
       var(--hero-overlay-left) 0%,
 
@@ -1471,21 +1470,15 @@ a:focus-visible {
 
       var(--hero-overlay-right) 76%,
 
-      transparent 100%
+      transparent 100%),
 
-    ),
-
-    linear-gradient(
-
-      180deg,
+    linear-gradient(180deg,
 
       rgba(5, 19, 32, 0.12) 0%,
 
       transparent 48%,
 
-      rgba(5, 19, 32, 0.35) 100%
-
-    ),
+      rgba(5, 19, 32, 0.35) 100%),
 
     url("/images/pixel-city-bg.png");
 
@@ -1503,9 +1496,7 @@ a:focus-visible {
 
   background-image:
 
-    linear-gradient(
-
-      90deg,
+    linear-gradient(90deg,
 
       var(--hero-overlay-left) 0%,
 
@@ -1513,21 +1504,15 @@ a:focus-visible {
 
       var(--hero-overlay-right) 76%,
 
-      transparent 100%
+      transparent 100%),
 
-    ),
-
-    linear-gradient(
-
-      180deg,
+    linear-gradient(180deg,
 
       rgba(255, 240, 205, 0.05) 0%,
 
       transparent 50%,
 
-      rgba(5, 19, 32, 0.24) 100%
-
-    ),
+      rgba(5, 19, 32, 0.24) 100%),
 
     url("/images/pixel-city-morning.png");
 
@@ -2620,6 +2605,7 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .portfolio,
   .theme-toggle,
   .portfolio .hero::before {
@@ -2676,11 +2662,340 @@ a:focus-visible {
 }
 
 /* Remove unwanted dark strip behind the navbar */
-.portfolio > .navbar {
+.portfolio>.navbar {
   margin-top: 0;
 }
 
-.portfolio > .navbar::before {
+.portfolio>.navbar::before {
   top: 0;
 }
 
+.tech-logo {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  color: currentColor;
+  filter: drop-shadow(0 0 4px currentColor);
+  object-fit: contain;
+}
+
+.floating-tech .tech-logo {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+.floating-tech-csharp .tech-logo {
+  width: 23px;
+  height: 23px;
+}
+
+.floating-tech-dotnet .tech-logo {
+  width: 25px;
+  height: 25px;
+}
+
+/* =====================================
+   NAVBAR ENHANCEMENT — PIXEL ARCADE
+   ===================================== */
+
+/* Smooth, balanced navigation spacing */
+.portfolio .navbar {
+  gap: clamp(12px, 1.5vw, 24px);
+}
+
+/* Navigation links */
+.portfolio .nav-links {
+  align-items: center;
+  gap: 7px;
+}
+
+/* Pixel-style menu items */
+.portfolio .nav-link {
+  position: relative;
+  padding: 11px 12px;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+/* Hover effect */
+.portfolio .nav-link:hover {
+  color: #a34b32;
+  background: #ffe1b3;
+  border-color: #e6c18b;
+  box-shadow: 2px 2px 0 #b78c5a;
+  transform: translate(-1px, -1px);
+}
+
+/* Active page */
+.portfolio .nav-link.active {
+  color: var(--navy);
+  background: var(--coral);
+  border-color: #f16e4e;
+  box-shadow: 3px 3px 0 #bd593c;
+  transform: translate(-1px, -1px);
+}
+
+/* Resume button press effect */
+.portfolio .resume-button:active,
+.portfolio .theme-toggle:active {
+  transform: translate(2px, 2px);
+}
+
+/* Keyboard accessibility */
+.portfolio .nav-link:focus-visible,
+.portfolio .resume-button:focus-visible,
+.portfolio .theme-toggle:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio .nav-link,
+  .portfolio .resume-button,
+  .portfolio .theme-toggle {
+    transition: none;
+  }
+}
+
+/* Keep the menu usable on smaller desktop screens */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .portfolio .navbar {
+    gap: 10px;
+    padding-inline: 12px;
+  }
+
+  .portfolio .nav-links {
+    gap: 2px;
+  }
+
+  .portfolio .nav-link {
+    padding: 9px 7px;
+    font-size: 10px;
+  }
+}
+
+/* Navbar spacing refinement */
+.portfolio .navbar {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.portfolio .nav-links {
+  flex: 0 1 auto;
+  justify-content: center;
+  gap: 4px;
+}
+
+.portfolio .nav-link {
+  padding: 10px 10px;
+  font-size: 11px;
+}
+
+.portfolio .theme-toggle,
+.portfolio .resume-button {
+  flex-shrink: 0;
+}
+
+/* FIX: Restore single-row navbar */
+@media (min-width: 1101px) {
+  .portfolio .navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .portfolio .nav-links {
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .portfolio .nav-link {
+    flex-shrink: 0;
+    padding: 10px 9px;
+    white-space: nowrap;
+  }
+
+  .portfolio .theme-toggle,
+  .portfolio .resume-button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+/* Mobile navbar: keep Resume button accessible */
+@media (max-width: 768px) {
+  .portfolio .navbar {
+    height: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .portfolio .resume-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    margin: 0;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* Mobile navbar layout refinement */
+@media (max-width: 768px) {
+  .portfolio .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .portfolio .brand {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .portfolio .mobile-menu {
+    order: 2;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .portfolio .theme-toggle {
+    order: 3;
+    flex: 0 0 auto;
+  }
+
+  .portfolio .nav-links {
+    order: 4;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .portfolio .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .portfolio .nav-links.open .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+
+  .portfolio .resume-button {
+    order: 5;
+    display: inline-flex;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile hero refinement */
+@media (max-width: 768px) {
+  .portfolio .hero.section-container {
+    padding-top: 36px;
+    padding-inline: 16px;
+  }
+
+  .portfolio .hero-content h1 {
+    font-size: clamp(42px, 10vw, 64px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+
+  .portfolio .hero-content h2 {
+    font-size: clamp(17px, 4.3vw, 22px);
+    line-height: 1.6;
+  }
+
+  .portfolio .hero-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .portfolio .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .portfolio .hero-actions .button {
+    max-width: 100%;
+  }
+}
+
+/* Mobile hero — balanced typography */
+@media (max-width: 768px) {
+  .portfolio .hero-content h1 {
+    font-size: clamp(38px, 9vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .portfolio .hero-content h2 {
+    font-size: clamp(16px, 4vw, 20px);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .portfolio .hero-description {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+
+  .portfolio .hero-actions {
+    gap: 10px;
+  }
+
+  .portfolio .hero-actions .button {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .portfolio .social-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio .hero-content h1 {
+    font-size: clamp(36px, 8vw, 48px);
+    line-height: 1.08;
+    margin-bottom: 14px;
+  }
+}
